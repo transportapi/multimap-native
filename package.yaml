@@ -1,0 +1,52 @@
+name:                multimap-native
+version:             1.0.0.3
+github:              "pkamenarsky/multimap-native"
+license:             MIT
+author:              "Philip Kamenarsky"
+maintainer:          "p.kamenarsky@gmail.com"
+copyright:           "2022 Philip Kamenarsky"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+- cbits/Multimap.cpp
+
+# Metadata used when publishing your package
+synopsis:            Native multimap
+category:            Database
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/pkamenarsky/multimap-native#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+
+library:
+  c-sources: cbits/Multimap.cpp
+  cc-options: -O2 -std=c++11
+  ghc-options:
+  - -Wall
+  extra-libraries: stdc++
+  source-dirs: src
+  exposed-modules:
+  - Data.Multimap.ByteString
+  - Data.Multimap.Word32
+
+tests:
+  multimap-native-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -O2
+    - -Wall
+    - -fno-warn-partial-type-signatures
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - multimap-native
+    - hspec
+    - QuickCheck

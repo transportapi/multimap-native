@@ -1,0 +1,64 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: db9857154463439db034eba06dea815211a78603fba4b9d2b59e83ca62beb27f
+
+name:           multimap-native
+version:        1.0.0.3
+synopsis:       Native multimap
+description:    Please see the README on GitHub at <https://github.com/pkamenarsky/multimap-native#readme>
+category:       Database
+homepage:       https://github.com/pkamenarsky/multimap-native#readme
+bug-reports:    https://github.com/pkamenarsky/multimap-native/issues
+author:         Philip Kamenarsky
+maintainer:     p.kamenarsky@gmail.com
+copyright:      2022 Philip Kamenarsky
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+    cbits/Multimap.cpp
+
+source-repository head
+  type: git
+  location: https://github.com/pkamenarsky/multimap-native
+
+library
+  exposed-modules:
+      Data.Multimap.ByteString
+      Data.Multimap.Word32
+  other-modules:
+      Paths_multimap_native
+  hs-source-dirs:
+      src
+  ghc-options: -Wall
+  cc-options: -O2 -std=c++11
+  c-sources:
+      cbits/Multimap.cpp
+  extra-libraries:
+      stdc++
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+  default-language: Haskell2010
+
+test-suite multimap-native-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_multimap_native
+  hs-source-dirs:
+      test
+  ghc-options: -O2 -Wall -fno-warn-partial-type-signatures -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , bytestring
+    , hspec
+    , multimap-native
+  default-language: Haskell2010
