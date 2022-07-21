@@ -1,13 +1,13 @@
-cabal-version: 1.12
+cabal-version: 2.2
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: db9857154463439db034eba06dea815211a78603fba4b9d2b59e83ca62beb27f
+-- hash: 694d15bddd17cdc75619ac578cf42180e03bfcf602a705c53f23d10793d9f01b
 
 name:           multimap-native
-version:        1.0.0.3
+version:        1.0.0.4
 synopsis:       Native multimap
 description:    Please see the README on GitHub at <https://github.com/pkamenarsky/multimap-native#readme>
 category:       Database
@@ -37,8 +37,8 @@ library
   hs-source-dirs:
       src
   ghc-options: -Wall
-  cc-options: -O2 -std=c++11
-  c-sources:
+  cxx-options: -O2
+  cxx-sources:
       cbits/Multimap.cpp
   extra-libraries:
       stdc++

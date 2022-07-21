@@ -1,5 +1,5 @@
 name:                multimap-native
-version:             1.0.0.3
+version:             1.0.0.4
 github:              "pkamenarsky/multimap-native"
 license:             MIT
 author:              "Philip Kamenarsky"
@@ -25,10 +25,9 @@ dependencies:
 - bytestring
 
 library:
-  c-sources: cbits/Multimap.cpp
-  cc-options: -O2 -std=c++11
-  ghc-options:
-  - -Wall
+  cxx-sources: cbits/Multimap.cpp
+  cxx-options: -O2
+  ghc-options: -Wall
   extra-libraries: stdc++
   source-dirs: src
   exposed-modules:
