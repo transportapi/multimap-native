@@ -4,7 +4,7 @@ cabal-version: 2.2
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 694d15bddd17cdc75619ac578cf42180e03bfcf602a705c53f23d10793d9f01b
+-- hash: 1493a4f9c4f743d04ce90f2b969f045d48471ceecfcc4ed8215b16afef7a781a
 
 name:           multimap-native
 version:        1.0.0.4
@@ -37,7 +37,7 @@ library
   hs-source-dirs:
       src
   ghc-options: -Wall
-  cxx-options: -O2
+  cxx-options: -O2 -std=c++11
   cxx-sources:
       cbits/Multimap.cpp
   extra-libraries:
